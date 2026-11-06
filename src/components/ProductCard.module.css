@@ -1,0 +1,159 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+}
+
+.media > a {
+  display: block;
+}
+
+/* Square colour chips, top left. */
+.swatches {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+.swatches i {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.12);
+}
+
+.fav {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  transition: opacity 0.2s;
+}
+
+.fav:hover {
+  opacity: 0.6;
+}
+
+.favOn {
+  color: var(--sale);
+}
+
+.badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+}
+
+.quick {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  gap: 8px;
+  padding: 12px;
+  background: rgb(255 255 255 / 0.96);
+  transform: translateY(100%);
+  transition: transform 0.3s var(--ease);
+}
+
+@media (hover: hover) {
+  .quick {
+    display: grid;
+  }
+
+  .card:hover .quick,
+  .card:focus-within .quick {
+    transform: none;
+  }
+}
+
+.quickLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.sizeRow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.sizeRow button {
+  min-height: 34px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.sizeRow button:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.info {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.info:hover .name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.name {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--navy);
+}
+
+.price {
+  font-size: 0.8125rem;
+  color: var(--navy);
+  opacity: 0.85;
+}
+
+.pending {
+  font-size: 0.6875rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 560px) {
+  .name,
+  .price {
+    font-size: 0.75rem;
+  }
+
+  .swatches i {
+    width: 11px;
+    height: 11px;
+  }
+}

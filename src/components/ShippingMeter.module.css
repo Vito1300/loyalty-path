@@ -1,0 +1,22 @@
+.meter {
+  display: grid;
+  gap: 8px;
+}
+
+.text {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.bar {
+  height: 2px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transition: width 0.5s var(--ease);
+}

@@ -1,0 +1,136 @@
+.section {
+  padding-top: clamp(72px, 8vw, 112px);
+}
+
+.title {
+  font-size: var(--fs-xl);
+  text-align: center;
+}
+
+/* Hairline toolbar: categories, count, column switch. */
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  margin-block: 32px 36px;
+  border-block: 1px solid var(--line);
+}
+
+.filters {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-left: var(--gutter);
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  flex: none;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.filter:first-child {
+  padding-left: 0;
+}
+
+.filter:hover {
+  color: var(--ink);
+}
+
+.filterOn {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.count {
+  display: grid;
+  place-items: center;
+  padding-inline: 32px;
+  border-inline: 1px solid var(--line);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.view {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  padding-right: var(--gutter);
+}
+
+.viewBtn {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--line-strong);
+}
+
+.viewBtn:hover,
+.viewOn {
+  color: var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 48px 20px;
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  padding: 48px 0;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .count,
+  .view {
+    display: none;
+  }
+
+  .grid,
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 10px;
+  }
+}

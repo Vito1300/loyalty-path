@@ -1,0 +1,396 @@
+.panel {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  display: grid;
+  gap: 26px;
+  padding-top: 8px;
+}
+
+.head {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  font-size: clamp(1.5rem, 1.2rem + 0.9vw, 1.9rem);
+  line-height: 1.25;
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.price strong {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.price span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.opt {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+.legend b {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+}
+
+.swatch input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.swatch span {
+  width: 26px;
+  height: 26px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+}
+
+.swatch input:checked + span {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.swatch input:focus-visible + span {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size {
+  position: relative;
+}
+
+.size input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.size span {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 48px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.size input:hover + span {
+  border-color: var(--ink);
+}
+
+.size input:checked + span {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.size input:focus-visible + span {
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Recommended size: a dot in the corner, labelled for screen readers via aria-label. */
+.sizeRec span::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sale);
+}
+
+.opt[aria-invalid='true'] .size span {
+  border-color: var(--danger);
+}
+
+.error {
+  font-size: 0.75rem;
+  color: var(--danger);
+}
+
+.finderToggle {
+  justify-self: start;
+}
+
+.finder {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--line);
+}
+
+.finder[hidden] {
+  display: none;
+}
+
+.range {
+  display: grid;
+  gap: 8px;
+}
+
+.range label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.range label b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.range input {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--ink);
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.result > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 34ch;
+}
+
+.result p {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.resultSize {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--navy);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 50px;
+  gap: 8px;
+}
+
+.favBtn {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.favBtn:hover {
+  border-color: var(--ink);
+}
+
+.favOn {
+  color: var(--sale);
+}
+
+.ship {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--announce);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.ship svg {
+  color: var(--navy);
+  margin-top: 1px;
+}
+
+.ship b {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.details {
+  border-top: 1px solid var(--line);
+}
+
+.details details {
+  border-bottom: 1px solid var(--line);
+}
+
+.details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 54px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--navy);
+}
+
+.details summary::-webkit-details-marker {
+  display: none;
+}
+
+.details summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+
+.details details[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.body {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 22px;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 10px 16px;
+}
+
+.specs dt {
+  color: var(--ink-soft);
+}
+
+.specs dd {
+  color: var(--ink);
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table thead th {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.table tbody th,
+.table td {
+  color: var(--ink);
+}
+
+.table tbody th {
+  font-weight: 600;
+}
+
+.rowOn th,
+.rowOn td {
+  background: var(--announce);
+}
+
+@media (max-width: 960px) {
+  .panel {
+    position: static;
+  }
+}

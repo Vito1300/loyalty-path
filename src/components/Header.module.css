@@ -1,0 +1,157 @@
+.announce {
+  display: grid;
+  place-items: center;
+  min-height: var(--announce-h);
+  padding: 6px var(--gutter);
+  background: var(--announce);
+  color: var(--navy);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Transparent over the hero photo on the home page. */
+.overlay {
+  background: transparent;
+  color: #fff;
+  border-bottom-color: transparent;
+}
+
+.overlay .count {
+  background: #fff;
+  color: var(--ink);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  min-height: var(--header-h);
+  padding-inline: var(--gutter);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 26px;
+  white-space: nowrap;
+}
+
+.nav a {
+  padding: 4px 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.nav a:hover,
+.nav a[aria-current='page'] {
+  border-bottom-color: currentColor;
+}
+
+.mark {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  margin-right: -0.32em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.action {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.action:hover {
+  opacity: 0.6;
+}
+
+.count {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+}
+
+.menuBtn {
+  display: none;
+  margin-left: -10px;
+}
+
+.mobileNav {
+  display: grid;
+}
+
+.mobileNav a {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.announceMore {
+  display: inline;
+}
+
+@media (max-width: 560px) {
+  .announceMore {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-grid;
+  }
+
+  .mark {
+    font-size: 0.9375rem;
+    letter-spacing: 0.24em;
+    margin-right: -0.24em;
+  }
+}

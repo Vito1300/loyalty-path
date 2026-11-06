@@ -1,0 +1,88 @@
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  padding-block: 18px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.crumbs li + li::before {
+  content: '/';
+  margin-inline: 10px;
+  opacity: 0.5;
+}
+
+.crumbs a {
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  color: var(--ink);
+}
+
+.crumbs [aria-current] {
+  color: var(--ink);
+}
+
+/* Gallery runs to the left edge of the viewport; buy panel sits in a fixed-width column. */
+.pdp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+  gap: clamp(32px, 4vw, 72px);
+  align-items: start;
+  padding-right: var(--gutter);
+}
+
+.related {
+  padding-top: clamp(80px, 9vw, 128px);
+}
+
+.relatedHead {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.allLink {
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.allLink:hover {
+  opacity: 0.6;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 48px 20px;
+}
+
+@media (max-width: 960px) {
+  .pdp {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: 0;
+  }
+
+  .pdp > aside {
+    padding-inline: var(--gutter);
+  }
+}
+
+@media (max-width: 760px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 10px;
+  }
+}

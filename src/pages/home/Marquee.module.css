@@ -1,0 +1,52 @@
+.marquee {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex: none;
+}
+
+.group li {
+  display: flex;
+  align-items: center;
+  padding: 17px 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--navy);
+}
+
+.group li::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  margin-inline: 40px;
+  background: currentColor;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}
