@@ -1,1 +1,1 @@
-# Loyalty Path — демо сайту
+# Loyalty Path — demo version
